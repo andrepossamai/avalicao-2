@@ -1,18 +1,18 @@
 
 package br.com.persistencia.dao;
 
-import br.com.model.MateriaPrima;
+import br.com.model.Produto;
 import java.sql.SQLException;
 import java.util.List;
 
 public interface MateriaPrimaDAO {
     
-    boolean salvar(MateriaPrima mp) throws SQLException;
+    boolean salvar(Produto mp) throws SQLException;
 
     boolean remover(int id);
 
-    List<MateriaPrima> listarTodos();
+    List<Produto> listarTodos();
 
-    MateriaPrima listarId(int id);
+    Produto listarId(int id);
     
 }

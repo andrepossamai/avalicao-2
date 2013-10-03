@@ -22,7 +22,7 @@ public class ClienteJuridicoDAOJDBC implements ClienteJuridicoDAO {
 
     @Override
     public boolean salvar(ClienteJuridico cj) throws SQLException {
-        if (cj.getCodigo() == 0) {
+        if (cj.getId() == 0) {
             return inserir(cj);
         } else {
             return editar(cj);
@@ -57,7 +57,7 @@ public class ClienteJuridicoDAOJDBC implements ClienteJuridicoDAO {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 ClienteJuridico cj = new ClienteJuridico();
-                cj.setCodigo(rs.getInt("codigo"));
+                cj.setId(rs.getInt("codigo"));
                 cj.setNome(rs.getString("nome"));
                 cj.setDataCadastro(rs.getDate("dataCadastro"));
                 cj.setTelefoneContato1(rs.getString("telefoneContato1"));
@@ -84,7 +84,7 @@ public class ClienteJuridicoDAOJDBC implements ClienteJuridicoDAO {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 ClienteJuridico cj = new ClienteJuridico();
-                cj.setCodigo(rs.getInt("codigo"));
+                cj.setId(rs.getInt("codigo"));
                 cj.setNome(rs.getString("nome"));
                 cj.setDataCadastro(rs.getDate("dataCadastro"));
                 cj.setTelefoneContato1(rs.getString("telefoneContato1"));

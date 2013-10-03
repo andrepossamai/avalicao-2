@@ -1,21 +1,14 @@
 package br.com.model;
 
+import java.sql.Date;
+
 public class Funcionario extends PessoaFisica {
 
-    private int id;
     private double salario;
-    private String dataAdimissao;
+    private Date dataAdimissao;
     private String ctps;
 
     public Funcionario() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public double getSalario() {
@@ -26,11 +19,11 @@ public class Funcionario extends PessoaFisica {
         this.salario = salario;
     }
 
-    public String getDataAdimissao() {
+    public Date getDataAdimissao() {
         return dataAdimissao;
     }
 
-    public void setDataAdimissao(String dataAdimissao) {
+    public void setDataAdimissao(Date dataAdimissao) {
         this.dataAdimissao = dataAdimissao;
     }
 
@@ -41,5 +34,5 @@ public class Funcionario extends PessoaFisica {
     public void setCtps(String ctps) {
         this.ctps = ctps;
     }
-
+   
 }

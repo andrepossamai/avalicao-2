@@ -64,7 +64,7 @@ public class ClienteFisicoDAOJDBC implements ClienteFisicoDAO {
                 cf.setTelefoneContato1(rs.getString("telefoneContato1"));
                 cf.setTelefoneContato2(rs.getString("telefoneContato2"));
                 cf.setEmail(rs.getString("email"));
-                cf.setEndereco(rs.getInt("endereço"));
+                cf.setEndereco(rs.getInt("endereco"));
                 cf.setCpf(rs.getString("cpf"));
                 cf.setRg(rs.getString("rg"));
                 clienteFisico.add(cf);
@@ -92,7 +92,7 @@ public class ClienteFisicoDAOJDBC implements ClienteFisicoDAO {
                 cf.setTelefoneContato1(rs.getString("telefoneContato1"));
                 cf.setTelefoneContato2(rs.getString("telefoneContato2"));
                 cf.setEmail(rs.getString("email"));
-                cf.setEndereco(rs.getInt("endereço"));
+                cf.setEndereco(rs.getInt("endereco"));
                 cf.setCpf(rs.getString("cpf"));
                 cf.setRg(rs.getString("rg"));
                 return cf;
