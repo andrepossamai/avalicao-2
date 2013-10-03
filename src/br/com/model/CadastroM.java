@@ -7,8 +7,8 @@ public class CadastroM {
     private String fornecedor;
     private String dataCompra;
     private String funcao;
-     private String valor;
-    private String quantidade;
+    private double valor;
+    private int quantidade;
 
     public CadastroM() {
     }
@@ -53,20 +53,19 @@ public class CadastroM {
         this.funcao = funcao;
     }
 
-    public String getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(String valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 
-    public String getQuantidade() {
+    public int getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(String quantidade) {
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-
 }
