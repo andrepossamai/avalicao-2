@@ -6,11 +6,10 @@ public class Pessoa {
 
     private int id;
     private String nome;
-    private Date dataCadastro;
     private String telefoneContato1;
     private String telefoneContato2;
-    private String email; 
-    private Endereco endereco; 
+    private String email;
+    private Endereco endereco;
 
     public Pessoa() {
     }
@@ -29,14 +28,6 @@ public class Pessoa {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Date getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(Date dataCadastro) {
-        this.dataCadastro = dataCadastro;
     }
 
     public String getTelefoneContato1() {
@@ -70,5 +61,4 @@ public class Pessoa {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-
 }

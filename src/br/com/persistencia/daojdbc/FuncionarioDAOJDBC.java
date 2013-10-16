@@ -15,11 +15,13 @@ import javax.swing.JOptionPane;
 //onde o clienteDAO liga ao banco de dados. fazendo assim o armazenamento.
 public class FuncionarioDAOJDBC implements FuncionarioDAO {
 
-    private static final String DELETE = "";
-    private static final String LIST = "";
-    private static final String LISTBYID = "";
-    private static final String INSERT = "";
-    private static final String UPDATE = "";
+    private static final String DELETE = "delete from funcionario where codigo = ?;";
+    private static final String LIST = "select * from funcionario;";
+    private static final String LISTBYID = "select * from funcionario where codigo + ?;";
+    private static final String INSERT = "insert into funcionario (salario, dataAdimissao, ctps, cpf, rg, "
+            + " nome, telefoneContato1, telefoneContato2, email, endereco) values (?,?,?,?,?,?,?,?,?,?);";
+    private static final String UPDATE = "update funcionario set salario = ?, dataAdimissao = ?, ctps = ?, cpf = ?, rg = ?, "
+            + " nome = ?, telefoneContato1 = ?, telefoneContato2 = ?, email = ?, endereco = ? where codigo = ?;";
 
     @Override
     public boolean salvar(Funcionario f) throws SQLException {
@@ -61,7 +63,6 @@ public class FuncionarioDAOJDBC implements FuncionarioDAO {
                 Funcionario f = new Funcionario();
                 f.setId(rs.getInt("codigo"));
                 f.setNome(rs.getString("nome"));
-                f.setDataCadastro(rs.getDate("dataCadastro"));
                 f.setTelefoneContato1(rs.getString("telefoneContato1"));
                 f.setTelefoneContato2(rs.getString("telefoneContato2"));
                 f.setEmail(rs.getString("email"));
@@ -70,6 +71,7 @@ public class FuncionarioDAOJDBC implements FuncionarioDAO {
                 f.setRg(rs.getString("rg"));
                 f.setDataAdimissao(rs.getDate("dataAdmissao"));
                 f.setCtps(rs.getString("Ctps"));
+                f.setSalario(rs.getDouble("salário"));
                 funcionario.add(f);
 
             }
@@ -91,7 +93,6 @@ public class FuncionarioDAOJDBC implements FuncionarioDAO {
                 Funcionario f = new Funcionario();
                 f.setId(rs.getInt("codigo"));
                 f.setNome(rs.getString("nome"));
-                f.setDataCadastro(rs.getDate("dataCadastro"));
                 f.setTelefoneContato1(rs.getString("telefoneContato1"));
                 f.setTelefoneContato2(rs.getString("telefoneContato2"));
                 f.setEmail(rs.getString("email"));
@@ -100,6 +101,7 @@ public class FuncionarioDAOJDBC implements FuncionarioDAO {
                 f.setRg(rs.getString("rg"));
                 f.setDataAdimissao(rs.getDate("dataAdmissao"));
                 f.setCtps(rs.getString("Ctps"));
+                f.setSalario(rs.getDouble("salário"));
                 return f;
             }
 
@@ -114,16 +116,17 @@ public class FuncionarioDAOJDBC implements FuncionarioDAO {
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(INSERT);
-            pstm.setString(1, f.getNome());
-            pstm.setDate(2, new java.sql.Date(f.getDataCadastro().getTime()));
-            pstm.setString(3, f.getTelefoneContato1());
-            pstm.setString(4, f.getTelefoneContato2());
-            pstm.setString(5, f.getEmail());
-            pstm.setInt(6, f.getEndereco());
-            pstm.setString(7, f.getCpf());
-            pstm.setString(8, f.getRg());
-            pstm.setDate(9, new java.sql.Date(f.getDataAdimissao().getTime()));
-            pstm.setString(10, f.getCtps());
+
+            pstm.setDouble(1, f.getSalario());
+            pstm.setDate(2, new java.sql.Date(f.getDataAdimissao().getTime()));
+            pstm.setString(3, f.getCtps());
+            pstm.setString(4, f.getCpf());
+            pstm.setString(5, f.getRg());
+            pstm.setString(6, f.getNome());
+            pstm.setString(7, f.getTelefoneContato1());
+            pstm.setString(8, f.getTelefoneContato2());
+            pstm.setString(9, f.getEmail());
+            pstm.setInt(10, f.getEndereco());
             pstm.execute();
             pstm.close();
             conn.close();
@@ -143,16 +146,16 @@ public class FuncionarioDAOJDBC implements FuncionarioDAO {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(UPDATE);
 
-            pstm.setString(1, f.getNome());
-            pstm.setDate(2, new java.sql.Date(f.getDataCadastro().getTime()));
-            pstm.setString(3, f.getTelefoneContato1());
-            pstm.setString(4, f.getTelefoneContato2());
-            pstm.setString(5, f.getEmail());
-            pstm.setInt(6, f.getEndereco());
-            pstm.setString(7, f.getCpf());
-            pstm.setString(8, f.getRg());
-            pstm.setDate(9, new java.sql.Date(f.getDataAdimissao().getTime()));
-            pstm.setString(10, f.getCtps());
+            pstm.setDouble(1, f.getSalario());
+            pstm.setDate(2, new java.sql.Date(f.getDataAdimissao().getTime()));
+            pstm.setString(3, f.getCtps());
+            pstm.setString(4, f.getCpf());
+            pstm.setString(5, f.getRg());
+            pstm.setString(6, f.getNome());
+            pstm.setString(7, f.getTelefoneContato1());
+            pstm.setString(8, f.getTelefoneContato2());
+            pstm.setString(9, f.getEmail());
+            pstm.setInt(10, f.getEndereco());
             pstm.execute();
             pstm.close();
             conn.close();
