@@ -18,7 +18,7 @@ public class FuncionarioDAOJDBC implements FuncionarioDAO {
 
     private static final String DELETE = "delete from funcionario where id = ?;";
     private static final String LIST = "select * from funcionario;";
-    private static final String LISTBYID = "select * from funcionario where id + ?;";
+    private static final String LISTBYID = "select * from funcionario where id = ?;";
     private static final String INSERT = "insert into funcionario (nome, telefoneContato1, "
             + "telefoneContato2, email, sexo, dataNascimento, cpf, rg, salario, dataAdmissao, "
             + "ctps, senha, login) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
