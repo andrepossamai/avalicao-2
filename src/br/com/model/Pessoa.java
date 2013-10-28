@@ -10,6 +10,10 @@ public class Pessoa {
     private String telefoneContato2;
     private String email;
     private Endereco endereco;
+    private String sexo;
+    private Date dataNascimento;
+    
+    
 
     public Pessoa() {
     }
@@ -61,4 +65,26 @@ public class Pessoa {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" + "id=" + id + ", nome=" + nome + ", telefoneContato1=" + telefoneContato1 + ", telefoneContato2=" + telefoneContato2 + ", email=" + email + ", endereco=" + endereco + ", sexo=" + sexo + ", dataNascimento=" + dataNascimento + '}';
+    }
+
 }

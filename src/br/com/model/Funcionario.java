@@ -1,12 +1,15 @@
 package br.com.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Funcionario extends PessoaFisica {
 
     private double salario;
     private Date dataAdimissao;
     private String ctps;
+    private String senha;
+    private String login;
+    
 
     public Funcionario() {
     }
@@ -34,5 +37,27 @@ public class Funcionario extends PessoaFisica {
     public void setCtps(String ctps) {
         this.ctps = ctps;
     }
-   
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    @Override
+    public String toString() {
+        return "Funcionario{" + "salario=" + salario + ", dataAdimissao=" + dataAdimissao + ", ctps=" + ctps + ", senha=" + senha + ", login=" + login + '}';
+    }
 }
+
+  

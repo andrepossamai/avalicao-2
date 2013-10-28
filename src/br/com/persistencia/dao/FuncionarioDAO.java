@@ -8,11 +8,17 @@ import java.util.List;
 
 
 public interface FuncionarioDAO {
-     boolean salvar(Funcionario fu)  throws SQLException;
+    
+      int salvar(Funcionario f);
 
-    boolean remover(int id);
+    boolean delete(int id);
 
-    List<Funcionario> listarTodos();
+    List<Funcionario> listAll();
 
-    Funcionario listarId(int id);
+    Funcionario listById(int id);
+
+    List<Funcionario> listByNome(String nome);
+    
+    public boolean validaLogin(String login, String senha);
+            
 }
